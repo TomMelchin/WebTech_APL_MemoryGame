@@ -3,18 +3,18 @@ import './App.css'
 import Card from './components/Card'
 
 const cardImages = [
-  { src: "/img/alien.png", matched: false },
-  { src: "/img/astronaut.png", matched: false },
-  { src: "/img/earth.png", matched: false },
-  { src: "/img/mars.png", matched: false },
-  { src: "/img/meteor.png", matched: false },
-  { src: "/img/moon.png", matched: false },
-  { src: "/img/satelite.png", matched: false },
-  { src: "/img/saturn.png", matched: false },
-  { src: "/img/spaceshuttle.png", matched: false },
-  { src: "/img/sun.png", matched: false },
-  { src: "/img/ufo.png", matched: false },
-  { src: "/img/zodiacsign.png", matched: false },
+  { source: "./img/alien.png", matched: false },
+  { source: "./img/astronaut.png", matched: false },
+  { source: "./img/earth.png", matched: false },
+  { source: "./img/mars.png", matched: false },
+  { source: "./img/meteor.png", matched: false },
+  { source: "./img/moon.png", matched: false },
+  { source: "./img/satelite.png", matched: false },
+  { source: "./img/saturn.png", matched: false },
+  { source: "./img/spaceshuttle.png", matched: false },
+  { source: "./img/sun.png", matched: false },
+  { source: "./img/ufo.png", matched: false },
+  { source: "./img/zodiacsign.png", matched: false },
 ]
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random()}))
+      .map((card) => ({ ...card, id: Math.random() }))
     setChoiceOne(null)
     setChoiceTwo(null)
     setCards(shuffledCards)
@@ -53,25 +53,25 @@ function App() {
   }
 
   useEffect(() => {
-    if (choiceOne && choiceTwo) {
-      setDisabled(true)
-      if (choiceOne.src === choiceTwo.src) {
-        setCards(prevCards => {
-          return prevCards.map(card => {
-            if (card.src === choiceOne.src) {
-              return { ...card, matched: true }
-            }
-            else {
-              return card
-            }
-          })
-        })
-        resetTurn()
-      }
-      else {
-        setTimeout(() => resetTurn(), 1000)
-      }
+    if (!choiceOne || !choiceTwo) {
+      return
     }
+    setDisabled(true)
+    if (choiceOne.source === choiceTwo.source) {
+      setCards(prevCards => {
+        return prevCards.map(card => {
+          if (card.source === choiceOne.source) {
+            return { ...card, matched: true }
+          }
+          return card
+        })
+      })
+      resetTurn()
+    }
+    else {
+      setTimeout(() => resetTurn(), 1000)
+    }
+
   }, [choiceOne, choiceTwo])
 
   const resetTurn = () => {

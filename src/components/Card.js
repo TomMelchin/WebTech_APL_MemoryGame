@@ -13,14 +13,16 @@ export default function Card({ card, handleChoice, flipped, disabled }) {
             <div className={flipped ? "flipped" : null}>
                 <img
                     className="front"
-                    src={card.src}
+                    src={card.source}
                     draggable="false"
+                    alt="Vorderseite"
                 />
                 <img
                     className="back"
-                    src="/img/cover.png"
+                    src="./img/cover.png"
                     onClick={handleClick}
                     draggable="false"
+                    alt="Rückseite"
                 />
             </div>
         </div>
