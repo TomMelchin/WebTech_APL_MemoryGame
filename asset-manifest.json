@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WebTech_APL_MemoryGame/static/css/main.58b8a8bf.css",
+    "main.js": "/WebTech_APL_MemoryGame/static/js/main.88b9beec.js",
+    "index.html": "/WebTech_APL_MemoryGame/index.html",
+    "main.58b8a8bf.css.map": "/WebTech_APL_MemoryGame/static/css/main.58b8a8bf.css.map",
+    "main.88b9beec.js.map": "/WebTech_APL_MemoryGame/static/js/main.88b9beec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58b8a8bf.css",
+    "static/js/main.88b9beec.js"
+  ]
+}
